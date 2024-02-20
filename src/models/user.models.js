@@ -3,25 +3,25 @@ import mongoose from 'mongoose'
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
+        required: true
     },
     email: {
         type: String,
-        required: true,
-        unique: true,
-        trim: true
+        unique: [true, 'email already taken'],
+        trim: true,
+        required: [true, "Cant be left unfilled"]
     },
     gender: {
         type: String,
         required: true
     },
     alternatePhone: {
-        type: String
+        type: String,
     },
     signupPhoneNumber: {
         type: String,
-        required: true,
-        unique: true
+        unique: [true , "Phone number already exists"],
+        required: true
     },
     address: {
         type: mongoose.Schema.Types.ObjectId,
@@ -29,4 +29,4 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-export const User = mongoose.model('User' , userSchema);
+export const User = mongoose.model("User" , userSchema);
