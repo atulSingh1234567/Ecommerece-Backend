@@ -17,7 +17,7 @@ const addressSchema = new mongoose.Schema({
     city: {
         type: String,
         required: true
-    }
+    },
 })
 
 export const Address = mongoose.model('Address', addressSchema)
