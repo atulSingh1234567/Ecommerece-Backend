@@ -18,17 +18,17 @@
 // })
 
 import express from 'express'
-import dotenv from 'dotenv'
-dotenv.config({
-    path: '\.env'
-})
+// import dotenv from 'dotenv'
+// dotenv.config({
+//     path: '.env'
+// })
 const app = express();
 
 app.get('/' , (req,res)=>[
     res.send("hello from the bottom of my heart")
 ])
 
-app.listen(process.env.PORT , ()=>{
+app.listen(8000 , ()=>{
     console.log('server running')
 })
 
