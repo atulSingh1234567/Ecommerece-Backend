@@ -64,5 +64,5 @@ connectDB()
 //     console.log('server running')
 // })
 
-export  {app};
+
 
