@@ -32,5 +32,5 @@ connectDB()
 //     console.log('server running')
 // })
 
-// export default app;
+export  {app};
 
