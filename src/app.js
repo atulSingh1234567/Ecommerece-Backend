@@ -20,6 +20,10 @@ import deleteCartRouter from './routes/deleteProd.route.js'
 import bestdealsRouter from './routes/bestdeal.route.js'
 import orderRouter from './routes/order.route.js'
 import userViseOrderRouter from './routes/orderedprod.route.js'
+
+app.get('/' ,(req, res)=>{
+    res.status(200).json({"message": "success"})
+})
 app.use("/api/v1" , userRouter);
 app.use("/api/v1" , cartRouter);
 app.use("/api/v1" , prodRouter);
