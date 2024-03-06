@@ -17,11 +17,16 @@ import prodRouter from './routes/product.route.js';
 import existUserRouter from './routes/existingUser.route.js'
 import userCartRouter from './routes/usercart.route.js'
 import deleteCartRouter from './routes/deleteProd.route.js'
+import bestdealsRouter from './routes/bestdeal.route.js'
+import orderRouter from './routes/order.route.js'
+import userViseOrderRouter from './routes/orderedprod.route.js'
 app.use("/api/v1" , userRouter);
 app.use("/api/v1" , cartRouter);
 app.use("/api/v1" , prodRouter);
 app.use("/api/v1" , existUserRouter);
 app.use("/api/v1" , userCartRouter);
 app.use("/api/v1" , deleteCartRouter)
-
+app.use("/api/v1" , bestdealsRouter)
+app.use("/api/v1" , orderRouter)
+app.use("/api/v1" , userViseOrderRouter)
 export {app}
