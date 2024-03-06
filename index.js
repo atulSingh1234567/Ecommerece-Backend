@@ -1,15 +1,43 @@
 import { connectDB } from "./src/db/db.connect.js";
 import dotenv from 'dotenv'
-import { app } from "./src/app.js";
-
+import express from 'express'
+import cors from "cors"
+import cookieParser from 'cookie-parser'
 
 dotenv.config({
     path: '\.env'
 })
 
-app.get('/' , (req,res)=>{
-    res.send("heaidkljfsdfals")
+const app = express();
+
+app.use(cors())
+
+app.use(express.json({limit: "16kb"}))
+app.use(express.urlencoded({extended: true, limit: "16kb"}))
+app.use(cookieParser())
+
+import userRouter from './src/routes/user.route.js';
+import cartRouter from './src/routes/cart.route.js'
+import prodRouter from './src/routes/product.route.js';
+import existUserRouter from './src/routes/existingUser.route.js'
+import userCartRouter from './src/routes/usercart.route.js'
+import deleteCartRouter from './src/routes/deleteProd.route.js'
+import bestdealsRouter from './src/routes/bestdeal.route.js'
+import orderRouter from './src/routes/order.route.js'
+import userViseOrderRouter from './src/routes/orderedprod.route.js'
+
+app.get('/' ,(req, res)=>{
+    res.status(200).json({"message": "success"})
 })
+app.use("/api/v1" , userRouter);
+app.use("/api/v1" , cartRouter);
+app.use("/api/v1" , prodRouter);
+app.use("/api/v1" , existUserRouter);
+app.use("/api/v1" , userCartRouter);
+app.use("/api/v1" , deleteCartRouter)
+app.use("/api/v1" , bestdealsRouter)
+app.use("/api/v1" , orderRouter)
+app.use("/api/v1" , userViseOrderRouter)
 
 connectDB()
 .then(() => {
