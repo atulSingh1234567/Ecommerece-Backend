@@ -11,7 +11,7 @@ dotenv.config({
 const app = express();
 
 app.use(cors({
-    origin: 'https://ecommerece-frontend.vercel.app/',
+    origin: 'https://ecommerece-frontend.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }))
 
