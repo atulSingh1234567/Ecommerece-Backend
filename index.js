@@ -12,7 +12,6 @@ const app = express();
 
 app.use(cors({
     origin: '*',
-    'Access-Control-Allow-Origin': '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }))
@@ -21,12 +20,6 @@ app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(cookieParser())
 
-app.use((req, res , next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  });
 
 import userRouter from './src/routes/user.route.js';
 import cartRouter from './src/routes/cart.route.js'
